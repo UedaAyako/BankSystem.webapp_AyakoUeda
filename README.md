@@ -1,6 +1,6 @@
 # 簡易預金管理システム（BankSystem）
 
-Spring Boot と HTML（JavaScript）を使って構築した、簡単な **Webベースの預金管理システム** です。  
+Spring Boot と HTML（一部JavaScript）を使って構築した、簡単なWebベースの預金管理システムです。  
 ユーザーがログイン後に、入金・出金・残高確認が行える機能を備えています。
 
 ---
@@ -17,26 +17,27 @@ Spring Boot と HTML（JavaScript）を使って構築した、簡単な **Web�
 ---
 
 ## 📦 構成ディレクトリ概要
-
+<pre>
 BankSystem/
 ├── src/
 │ └── main/
 │ ├── java/
-│ │ └── com/example/demo/
-│ │ ├── BankSystemApplication.java
-│ │ ├── BankAccount.java
-│ │ ├── BankController.java
-│ │ └── HomeController.java
+│ │  └── com/example/demo/
+│ │   ├── BankSystemApplication.java
+│ │   ├── BankAccount.java
+│ │   ├── BankController.java
+│ │   └── HomeController.java
 │ └── resources/
 │ └── static/
-│ ├── login.html
-│ └── transaction.html
+│   ├── login.html
+│   └── transaction.html
 ├── pom.xml
 └── README.md
-
+</pre>
+  
 ---
 
-## 🚀 起動手順
+## 起動手順
 
 1. Eclipse でプロジェクトをインポート（Maven プロジェクト）
 2. `BankSystemApplication.java` を右クリック → 実行（Javaアプリケーション）
@@ -44,7 +45,7 @@ BankSystem/
 
 ---
 
-## 🔐 ログイン情報（初期値）
+## ログイン情報（初期値）
 
 | 項目       | 値         |
 |------------|------------|
@@ -53,7 +54,7 @@ BankSystem/
 
 ---
 
-## 🖥️ 画面概要
+## 画面概要
 
 ### 1. ログイン画面（`login.html`）
 
@@ -67,7 +68,7 @@ BankSystem/
 
 ---
 
-## 🔧 主なクラスと役割
+## クラスと役割
 
 | ファイル名                 | 説明                                                         |
 |---------------------------|--------------------------------------------------------------|
@@ -78,7 +79,7 @@ BankSystem/
 
 ---
 
-## 📡 利用可能なAPI
+## 利用可能なAPI
 
 | メソッド | エンドポイント     | 概要                 |
 |----------|--------------------|----------------------|
@@ -86,3 +87,15 @@ BankSystem/
 | POST     | `/api/deposit`     | 入金                 |
 | POST     | `/api/withdraw`    | 出金                 |
 | GET      | `/api/balance`     | 残高確認             |
+
+---
+
+## 苦労した箇所
+
+- 設計<br>
+  どのような仕様にするかをchatGPTでアイデアの壁打ちに時間を要した
+- エラー処理<br>
+  コードを目視確認およびchatGPTでのコードチェックによりエラーを解消
+
+---
+
