@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+<script>
+function login() {
+    const id = document.getElementById("username").value;
+    const pw = document.getElementById("pass").value;
+
+    fetch("/api/login", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id=${encodeURIComponent(id)}&pw=${encodeURIComponent(pw)}`
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = "/transaction.html";  // 入出金画面へ遷移
+        } else {
+            return response.text().then(text => alert(text));
+        }
+    });
+}
+</script>
+</head>
+<body>
+<h1>ログイン画面</h1>
+<p>ユーザー名</p>
+<input type="text" id="username" placeholder="ユーザー名を入力">
+<p>パスワード</p>
+<input type="password" id="pass" placeholder="パスワードを入力">
+<br><br>
+<button onclick="login()">ログイン</button>
+</body>
+</html>

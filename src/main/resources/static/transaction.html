@@ -1,0 +1,46 @@
+<!-- transaction.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>入出金画面</title>
+<script>
+function deposit() {
+    const amount = document.getElementById("amount").value;
+    fetch("/api/deposit", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `amount=${encodeURIComponent(amount)}`
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg));
+}
+
+function withdraw() {
+    const amount = document.getElementById("amount").value;
+    fetch("/api/withdraw", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `amount=${encodeURIComponent(amount)}`
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg));
+}
+
+function checkBalance() {
+    fetch("/api/balance")
+    .then(res => res.text())
+    .then(msg => alert(msg));
+}
+</script>
+</head>
+<body>
+<h1>入出金画面</h1>
+<p>金額</p>
+<input type="number" id="amount">
+<br><br>
+<button onclick="deposit()">入金</button>
+<button onclick="withdraw()">出金</button>
+<button onclick="checkBalance()">残高確認</button>
+</body>
+</html>
